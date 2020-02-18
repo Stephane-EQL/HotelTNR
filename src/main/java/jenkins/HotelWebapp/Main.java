@@ -25,15 +25,12 @@ static WebDriver driver ;
 	static WebDriver choisirNavigateur(ENavigateur nav) {
 		switch(nav) {
 		case firefox:
-			System.setProperty("webdriver.gecko.driver", "C:\\Users\\Drivers\\chromedriver.exe") ;
 			driver = new FirefoxDriver() ;
 			return driver;
-		case chrome:
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Drivers\\chromedriver.exe");
+		case chrome:			
 			driver = new ChromeDriver();
 			return driver;
-		case ie:
-			System.setProperty("webdriver.ie.driver", "C:\\Users\\Drivers\\IEDriverServer.exe");
+		case ie:			
 			driver = new InternetExplorerDriver();
 			return driver;
 		default: return null;

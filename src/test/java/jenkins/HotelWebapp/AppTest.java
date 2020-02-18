@@ -20,7 +20,7 @@ public class AppTest {
 		
 	@Before
 	public void setup() {
-		driver = Main.choisirNavigateur(ENavigateur.chrome);
+		driver = Main.choisirNavigateur(ENavigateur.firefox);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	
