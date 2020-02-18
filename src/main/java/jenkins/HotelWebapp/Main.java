@@ -1,12 +1,47 @@
 package jenkins.HotelWebapp;
 import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class Main {
+	
+static WebDriver driver ;
+	
+	static WebDriver choisirNavigateur(ENavigateur nav) {
+		switch(nav) {
+		case firefox:
+			System.setProperty("webdriver.gecko.driver", "src/drivers/geckodriver.exe") ;
+			driver = new FirefoxDriver() ;
+			return driver;
+		case chrome:
+			System.setProperty("webdriver.chrome.driver", "src/drivers/chromedriver.exe");
+			driver = new ChromeDriver();
+			return driver;
+		case ie:
+			System.setProperty("webdriver.ie.driver", "src/drivers/IEDriverServer.exe");
+			driver = new InternetExplorerDriver();
+			return driver;
+		default: return null;
+			
+		}
+		
+	}
+
    
 	@FindBy(xpath="//h2[.=text()]")
 	WebElement titleh2;

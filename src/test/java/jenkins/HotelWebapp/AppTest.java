@@ -1,39 +1,37 @@
 package jenkins.HotelWebapp;
 
-import java.io.IOException;
+import static org.junit.Assert.*;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Before;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-
-
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class AppTest {
-
-	WebDriver driver; 
-	private String browser="Chrome";	
-	private String IP="http://192.168.102.219:9999/";
 	
+	WebDriver driver;
+	private String IP="http://192.168.102.219:9999/";
 	Main main = PageFactory.initElements(driver, Main.class);
-
+		
 	@Before
-	public void Driver() throws InterruptedException {
-
-		WebDriver driver = new ChromeDriver();
+	public void setup() {
+		driver = Main.choisirNavigateur(ENavigateur.chrome);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+	
+	@After
+	public void tearDown()
+	{
+		driver.quit();
 	}
 	
 	@Test	
-	public void Connexion () throws InterruptedException, IOException {
+	public void Connexion ()  {
 
 		
 		Main main = PageFactory.initElements(driver, Main.class);
