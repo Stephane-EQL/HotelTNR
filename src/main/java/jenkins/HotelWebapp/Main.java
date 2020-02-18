@@ -25,15 +25,15 @@ static WebDriver driver ;
 	static WebDriver choisirNavigateur(ENavigateur nav) {
 		switch(nav) {
 		case firefox:
-			System.setProperty("webdriver.gecko.driver", "/HotelWebapp/src/drivers/chromedriver.exe") ;
+			System.setProperty("webdriver.gecko.driver", "C:\\Users\\Drivers\\chromedriver.exe") ;
 			driver = new FirefoxDriver() ;
 			return driver;
 		case chrome:
-			System.setProperty("webdriver.chrome.driver", "/HotelWebapp/src/drivers/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 			return driver;
 		case ie:
-			System.setProperty("webdriver.ie.driver", "/HotelWebapp/src/drivers/IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver", "C:\\Users\\Drivers\\IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 			return driver;
 		default: return null;
